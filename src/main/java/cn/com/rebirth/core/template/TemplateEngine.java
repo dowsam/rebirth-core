@@ -4,6 +4,7 @@
  */
 package cn.com.rebirth.core.template;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -20,5 +21,5 @@ public interface TemplateEngine {
 	 * @param param the param
 	 * @return the string
 	 */
-	public String renderFile(String templateName, Map<String, Object> param);
+	public String renderFile(String templateName, Map<String, Object> param) throws IOException;
 }

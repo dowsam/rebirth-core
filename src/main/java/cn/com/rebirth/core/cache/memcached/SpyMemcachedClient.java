@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2005-2012 www.summall.com.cn All rights reserved
- * Info:summall-core SpyMemcachedClient.java 2012-2-3 10:24:31 l.xue.nong$$
+ * Copyright (c) 2005-2012 www.china-cti.com All rights reserved
+ * Info:rebirth-core SpyMemcachedClient.java 2012-7-20 11:19:40 l.xue.nong$$
  */
 package cn.com.rebirth.core.cache.memcached;
 
@@ -17,9 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 
 /**
- * 对SpyMemcached Client的二次封装,提供常用的Get/GetBulk/Set/Delete/Incr/Decr函数的封装.
- * 
- * 未提供封装的函数可直接调用getClient()取出Spy的原版MemcachedClient来使用.
+ * The Class SpyMemcachedClient.
  *
  * @author l.xue.nong
  */
@@ -35,7 +33,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	private long shutdownTimeout = 1000;
 
 	/**
-	 * Get方法, 转换结果类型并屏蔽异常, 仅返回Null.
+	 * Gets the.
 	 *
 	 * @param <T> the generic type
 	 * @param key the key
@@ -52,7 +50,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * GetBulk方法, 转换结果类型并屏蔽异常.
+	 * Gets the bulk.
 	 *
 	 * @param <T> the generic type
 	 * @param keys the keys
@@ -69,7 +67,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * 异步Set方法, 不考虑执行结果.
+	 * Sets the.
 	 *
 	 * @param key the key
 	 * @param expiredTime the expired time
@@ -80,7 +78,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * 安全的Set方法,在1秒内返回结果, 否则返回false并取消操作.
+	 * Safe set.
 	 *
 	 * @param key the key
 	 * @param value the value
@@ -98,7 +96,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * 异步 Delete方法, 不考虑执行结果.
+	 * Delete.
 	 *
 	 * @param key the key
 	 */
@@ -107,7 +105,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * 安全的Set方法,在1秒内返回结果, 否则返回false并取消操作.
+	 * Safe delete.
 	 *
 	 * @param key the key
 	 * @return true, if successful
@@ -123,7 +121,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * Incr方法.
+	 * Incr.
 	 *
 	 * @param key the key
 	 * @param by the by
@@ -135,7 +133,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * Decr方法.
+	 * Decr.
 	 *
 	 * @param key the key
 	 * @param by the by
@@ -147,7 +145,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * 异步Incr方法, 不支持默认值, 若key不存在返回-1.
+	 * Async incr.
 	 *
 	 * @param key the key
 	 * @param by the by
@@ -158,7 +156,7 @@ public class SpyMemcachedClient implements DisposableBean {
 	}
 
 	/**
-	 * 异步Decr方法, 不支持默认值, 若key不存在返回-1.
+	 * Async decr.
 	 *
 	 * @param key the key
 	 * @param by the by
@@ -216,4 +214,5 @@ public class SpyMemcachedClient implements DisposableBean {
 	public void setShutdownTimeout(long shutdownTimeout) {
 		this.shutdownTimeout = shutdownTimeout;
 	}
+
 }

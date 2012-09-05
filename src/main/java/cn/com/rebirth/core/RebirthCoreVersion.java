@@ -4,6 +4,7 @@
  */
 package cn.com.rebirth.core;
 
+import cn.com.rebirth.commons.AbstractVersion;
 import cn.com.rebirth.commons.Version;
 
 /**
@@ -11,18 +12,10 @@ import cn.com.rebirth.commons.Version;
  *
  * @author l.xue.nong
  */
-public class RebirthCoreVersion implements Version {
+public class RebirthCoreVersion extends AbstractVersion implements Version {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 817306910476474378L;
-
-	/* (non-Javadoc)
-	 * @see cn.com.summall.commons.Version#getModuleVersion()
-	 */
-	@Override
-	public String getModuleVersion() {
-		return "0.0.1.RELEASE";
-	}
 
 	/* (non-Javadoc)
 	 * @see cn.com.summall.commons.Version#getModuleName()

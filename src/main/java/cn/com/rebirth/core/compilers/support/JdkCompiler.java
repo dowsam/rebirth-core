@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2005-2012 www.summall.com.cn All rights reserved
- * Info:summall-core JdkCompiler.java 2012-2-8 17:09:39 l.xue.nong$$
+ * Copyright (c) 2005-2012 www.china-cti.com All rights reserved
+ * Info:rebirth-core JdkCompiler.java 2012-8-1 16:21:31 l.xue.nong$$
  */
 package cn.com.rebirth.core.compilers.support;
 
@@ -38,11 +38,9 @@ import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 
 /**
- * JdkCompiler. (SPI, Singleton, ThreadSafe)
- * 
- * @see com.TemplateEngine.httl.Engine#setCompiler(Compiler)
- * 
- * @author Liang Fei (liangfei0201 AT gmail DOT com)
+ * The Class JdkCompiler.
+ *
+ * @author l.xue.nong
  */
 public class JdkCompiler extends AbstractCompiler {
 
@@ -313,14 +311,8 @@ public class JdkCompiler extends AbstractCompiler {
 			this.classLoader = classLoader;
 		}
 
-		/**
-		 * Gets the file for input.
-		 *
-		 * @param location the location
-		 * @param packageName the package name
-		 * @param relativeName the relative name
-		 * @return the file for input
-		 * @throws IOException Signals that an I/O exception has occurred.
+		/* (non-Javadoc)
+		 * @see javax.tools.ForwardingJavaFileManager#getFileForInput(javax.tools.JavaFileManager.Location, java.lang.String, java.lang.String)
 		 */
 		@Override
 		public FileObject getFileForInput(Location location, String packageName, String relativeName)
@@ -350,21 +342,14 @@ public class JdkCompiler extends AbstractCompiler {
 		 * @param location the location
 		 * @param packageName the package name
 		 * @param relativeName the relative name
-		 * @return the uRI
+		 * @return the uri
 		 */
 		private URI uri(Location location, String packageName, String relativeName) {
 			return toURI(location.getName() + '/' + packageName + '/' + relativeName);
 		}
 
-		/**
-		 * Gets the java file for output.
-		 *
-		 * @param location the location
-		 * @param qualifiedName the qualified name
-		 * @param kind the kind
-		 * @param outputFile the output file
-		 * @return the java file for output
-		 * @throws IOException Signals that an I/O exception has occurred.
+		/* (non-Javadoc)
+		 * @see javax.tools.ForwardingJavaFileManager#getJavaFileForOutput(javax.tools.JavaFileManager.Location, java.lang.String, javax.tools.JavaFileObject.Kind, javax.tools.FileObject)
 		 */
 		@Override
 		public JavaFileObject getJavaFileForOutput(Location location, String qualifiedName, Kind kind,
@@ -374,23 +359,16 @@ public class JdkCompiler extends AbstractCompiler {
 			return file;
 		}
 
-		/**
-		 * Gets the class loader.
-		 *
-		 * @param location the location
-		 * @return the class loader
+		/* (non-Javadoc)
+		 * @see javax.tools.ForwardingJavaFileManager#getClassLoader(javax.tools.JavaFileManager.Location)
 		 */
 		@Override
 		public ClassLoader getClassLoader(JavaFileManager.Location location) {
 			return classLoader;
 		}
 
-		/**
-		 * Infer binary name.
-		 *
-		 * @param loc the loc
-		 * @param file the file
-		 * @return the string
+		/* (non-Javadoc)
+		 * @see javax.tools.ForwardingJavaFileManager#inferBinaryName(javax.tools.JavaFileManager.Location, javax.tools.JavaFileObject)
 		 */
 		@Override
 		public String inferBinaryName(Location loc, JavaFileObject file) {
@@ -399,15 +377,8 @@ public class JdkCompiler extends AbstractCompiler {
 			return super.inferBinaryName(loc, file);
 		}
 
-		/**
-		 * List.
-		 *
-		 * @param location the location
-		 * @param packageName the package name
-		 * @param kinds the kinds
-		 * @param recurse the recurse
-		 * @return the iterable
-		 * @throws IOException Signals that an I/O exception has occurred.
+		/* (non-Javadoc)
+		 * @see javax.tools.ForwardingJavaFileManager#list(javax.tools.JavaFileManager.Location, java.lang.String, java.util.Set, boolean)
 		 */
 		@Override
 		public Iterable<JavaFileObject> list(Location location, String packageName, Set<Kind> kinds, boolean recurse)
